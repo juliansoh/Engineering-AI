@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  5 APR 2026 16:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  5 APR 2026 17:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1098,30 +1098,30 @@ Package hyperref Info: Link coloring ON on input line 10.
 \@outlinefile=\write6
 \openout6 = `report.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 67.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 68.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 67.
+(Font)              scaled to size 9.19998pt on input line 68.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.19998pt on input line 67.
+(Font)              scaled to size 9.19998pt on input line 68.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 13.24796pt on input line 67.
+(Font)              scaled to size 13.24796pt on input line 68.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.03998pt on input line 80.
+(Font)              scaled to size 11.03998pt on input line 81.
+
+
 <figures/CV_Loss_Curves.png, id=23, 988.69376pt x 407.5225pt>
 File: figures/CV_Loss_Curves.png Graphic file (type png)
 <use figures/CV_Loss_Curves.png>
-Package pdftex.def Info: figures/CV_Loss_Curves.png  used on input line 95.
+Package pdftex.def Info: figures/CV_Loss_Curves.png  used on input line 101.
 (pdftex.def)             Requested size: 239.40962pt x 98.67795pt.
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 102.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 108.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 )
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 108--109
+Underfull \hbox (badness 1028) in paragraph at lines 114--115
 []\T1/pplj/m/n/10 Each col-ored line cor-re-sponds to one fold of cross-
  []
 
@@ -1137,83 +1137,78 @@ Package fancyhdr Warning: \footskip is too small (9.03374pt):
 
  <./figures/CV_Loss_Curves.png>]
 
-<figures/Predicted_vs_Actual_curves.png, id=46, 984.67876pt x 404.51125pt>
+<figures/Predicted_vs_Actual_curves.png, id=47, 984.67876pt x 404.51125pt>
 File: figures/Predicted_vs_Actual_curves.png Graphic file (type png)
 <use figures/Predicted_vs_Actual_curves.png>
-Package pdftex.def Info: figures/Predicted_vs_Actual_curves.png  used on input line 156.
+Package pdftex.def Info: figures/Predicted_vs_Actual_curves.png  used on input line 162.
 (pdftex.def)             Requested size: 239.40962pt x 98.35pt.
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 163.
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 178.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
-LaTeX Font Info:    Trying to load font information for U+zeus on input line 163.
+(Font)              scaled to size 5.69998pt on input line 178.
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 178.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
-LaTeX Font Info:    Trying to load font information for U+zeuex on input line 163.
+(Font)              scaled to size 5.69998pt on input line 178.
+LaTeX Font Info:    Trying to load font information for U+zeuex on input line 178.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 163.
+(Font)              scaled to size 5.69998pt on input line 178.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 178.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
+(Font)              scaled to size 5.69998pt on input line 178.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
+(Font)              scaled to size 5.69998pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeur/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeur/b/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeur/b/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
+(Font)              scaled to size 5.69998pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 163.
+(Font)              scaled to size 9.49997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
-(Font)              scaled to size 7.21997pt on input line 163.
+(Font)              scaled to size 7.21997pt on input line 178.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
-(Font)              scaled to size 5.69998pt on input line 163.
-
-Overfull \hbox (130.23752pt too wide) in paragraph at lines 163--171
- [][] 
- []
-
-<figures/Depth_Experiment_Curves.png, id=49, 888.31876pt x 489.83pt>
+(Font)              scaled to size 5.69998pt on input line 178.
+<figures/Depth_Experiment_Curves.png, id=50, 888.31876pt x 489.83pt>
 File: figures/Depth_Experiment_Curves.png Graphic file (type png)
 <use figures/Depth_Experiment_Curves.png>
-Package pdftex.def Info: figures/Depth_Experiment_Curves.png  used on input line 186.
+Package pdftex.def Info: figures/Depth_Experiment_Curves.png  used on input line 194.
 (pdftex.def)             Requested size: 239.40962pt x 132.00922pt.
 
 
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 196.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 198.
 
 Package fancyhdr Warning: \footskip is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -1241,18 +1236,18 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 7808F8DE2570E0B490298289A7464E27;191.
  ) 
 Here is how much of TeX's memory you used:
- 44323 strings out of 473190
- 1028498 string characters out of 5715801
- 1556883 words of memory out of 5000000
+ 44324 strings out of 473190
+ 1028512 string characters out of 5715801
+ 1554883 words of memory out of 5000000
  66752 multiletter control sequences out of 15000+600000
  604732 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,11n,131p,838b,1038s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 112i,11n,131p,838b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report.pdf (3 pages, 793773 bytes).
+Output written on report.pdf (3 pages, 794069 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
  60 words of extra memory for PDF output out of 10000 (max. 10000000)
 

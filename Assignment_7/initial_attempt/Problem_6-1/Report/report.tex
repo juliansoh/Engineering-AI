@@ -58,7 +58,8 @@
 \begin{adjustwidth}{1.5in}{1.5in}
 {\small
 \noindent\textbf{Abstract.} \hspace{1em}
-Build and train a feedforward neural network in PyTorch to predict warehouse picking times from operational features. The dataset contains nonlinear interactions that a linear model cannot capture; the exercise demonstrates when and why neural networks outperform linear models.
+Build and train a feedforward neural network in PyTorch to predict warehouse picking times from operational features. The dataset contains nonlinear interactions that a linear model cannot capture; the exercise demonstrates when and why neural networks outperform linear models
+by examining the Cross-Validation Loss Curves, Predicted-vs.-Actual scatter plots, RMSE comparison, and a depth experiment using PyTorch.
 }
 \end{adjustwidth}
 \vspace{9pt}
@@ -71,20 +72,25 @@ Build and train a feedforward neural network in PyTorch to predict warehouse pic
 \section{Introduction} 
 \label{sec:introduction}
 
-Linear models cannot learn non-linear data patterns. In contrast, feedforward neural networks can learn non-linear relationships between features and targets. This report demonstrates the superiority of feedforward neural networks over linear models in predicting warehouse picking times from operational features. 
+Linear models cannot effectively learn non-linear data patterns. In contrast, feedforward neural networks can learn non-linear relationships between features and targets. This report demonstrates the superiority of feedforward neural networks over linear models in predicting warehouse picking times from operational features. 
 
 A dataset containing non-linear interactions is generated. This dataset contains patterns that a linear model cannot capture, while a feedforward neural network can learn these complex relationships and make accurate predictions.
 
 \section{Methods}
 
-\subsection{Training Methodology}
+\subsection{Neural Network Training and Cross-Validation}
 We used a 5-fold cross-validation approach. We held 20\% of the data as a validation set and trained the model on the remaining 80\%. This process was repeated 5 times, with each fold serving as the validation set once. The training was performed for 200 epochs per fold, and the average validation loss across all folds was computed to evaluate model performance.
 
 After cross-validation, we retrained on the full CV pool (all 5 folds combined) with the same hyperparameters and evaluated the final RMSE.
 
-\subsection{Linear Regression Baseline}
+\subsection{Linear Regression}
+Using Linear Regression, we used the same normalized data as the neural network. This will serve as our comparison of its performance to the neural network.
 
-Using Linear Regression, we used the same normalized data as the neural network. This will serve as our baseline and to compare its performance to the neural network.
+\subsection{Evaluation Metrics}
+We plotted the Cross-Validation (CV) loss curves for each fold to visualize the learning process. 
+We also created scatter plots of the predicted vs. actual picking times for both the linear model and the neural network to visually assess prediction quality. 
+Finally, we computed and compared the RMSE for both models on the test set.
+Collectively, we will use these metrics to demonstrate the superiority of the neural network over the linear model in capturing the underlying data patterns and making accurate predictions.
 
 \section{Results and Discussion}
 \label{sec:results}
@@ -158,16 +164,18 @@ This visual assessment is consistent with the quantitative results: the neural n
 	\label{fig:Predicted_vs_Actual}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[t]
 \centering
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccc}
 \hline
-\textbf{Model} & \textbf{Test RMSE (sec)} & \textbf{Relative to Linear} & \textbf{RMSE Improvement (\%)} \\
+\textbf{Model} & \textbf{Test RMSE (sec)} & \textbf{Relative} & \textbf{Improvement (\%)} \\
 \hline
 Linear Regression & 5.45 & 1.000 & 0.00 \\
 Neural Network    & 2.72 & 0.499 & 50.12 \\
 \hline
 \end{tabular}
+}
 \caption{Test RMSE comparison between linear regression and neural network models.}
 \label{tab:rmse_comparison}
 \end{table}
