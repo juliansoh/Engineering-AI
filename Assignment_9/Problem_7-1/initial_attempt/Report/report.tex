@@ -71,11 +71,11 @@ Implement Q-learning and State-Action-Reward-State-Action (SARSA) from scratch f
 \section{Introduction} 
 \label{sec:introduction}
 
-This experiment studies \textbf{tabular reinforcement learning} in a small stochastic warehouse navigation problem. The environment is a $4 \times 4$ grid world in which an agent starts at the lower-left corner and must learn how to reach a goal state at $(3, 3)$ while avoiding a hazardous state at $(3, 2)$. The task is intentionally simple enough that the full state space can be represented exactly with a tabular value function, yet rich enough to highlight important reinforcement-learning ideas such as stochastic transitions, exploration, bootstrapping, and the difference between \textbf{off-policy} and \textbf{on-policy} learning.
+This experiment studies \textbf{tabular reinforcement learning} in a small stochastic warehouse navigation problem. The environment is a $4 \times 4$ grid world in which an agent started at the lower-left corner and must learn how to reach a goal state at $(3, 3)$ while avoiding a hazardous state at $(3, 2)$. The task was intentionally simple enough that the full state space can be represented exactly with a tabular value function, yet rich enough to highlight important reinforcement-learning ideas such as stochastic transitions, exploration, bootstrapping, and the difference between \textbf{off-policy} and \textbf{on-policy} learning.
 
-Beyond comparing reward curves, we also compared the learned policies directly against the optimal policy from value iteration. This makes it possible to identify which states are learned correctly and where the methods differ, particularly in states in close proximity to the hazard.
+Aside from comparing reward curves, we also compared the learned policies directly against the optimal policy from value iteration. This made it possible to identify which states were learned correctly and where the methods differed, particularly in states in close proximity to the hazard.
 
-Overall, this experiment is designed to show not only whether the agent learns successfully, but also \textbf{how different reinforcement-learning algorithms behave under uncertainty}. In particular, it illustrates why Q-learning often learns more aggressive goal-directed behavior, while State-Action-Reward-State-Action (SARSA) can learn safer policies in risky regions because it accounts for the consequences of continued exploration.
+Overall, this experiment was designed to show not only whether the agent learned successfully, but also \textbf{how different reinforcement-learning algorithms behave under uncertainty}. In particular, it illustrated why Q-learning often learns more aggressive goal-directed behavior, while State-Action-Reward-State-Action (SARSA) can learn safer policies in risky regions because it accounts for the consequences of continued exploration.
 
 \section{Methods}
 
