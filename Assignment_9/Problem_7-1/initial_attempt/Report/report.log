@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 APR 2026 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 APR 2026 13:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1166,25 +1166,27 @@ LaTeX Font Info:    Font shape `U/zeus/b/n' will be
 (Font)              scaled to size 7.21997pt on input line 74.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
 (Font)              scaled to size 5.69998pt on input line 74.
+
+Underfull \hbox (badness 1147) in paragraph at lines 76--77
+\T1/pplj/m/n/10 state space can be rep-re-sented ex-actly with a tab-u-lar
+ []
+
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.03998pt on input line 82.
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 85.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+(Font)              scaled to size 11.03998pt on input line 84.
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 87.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 )
 
 
-Underfull \hbox (badness 1642) in paragraph at lines 103--104
+Underfull \hbox (badness 1642) in paragraph at lines 105--106
 []\T1/pplj/m/n/10 Implement $\U/zeur/m/n/10 "$\T1/pplj/m/n/10 -greedy ac-tion se-lec-tion and train Q-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 []\T1/pplj/m/n/10 Extract the Q-learning pol-icy us-ing $\U/zeur/m/n/10 ^^Y\U/zeus/m/n/10 ¨\U/zeur/m/n/10 s\U/zeus/m/n/10 © ½
  []
-
-
-Underfull \vbox (badness 1117) has occurred while \output is active []
 
 
 
@@ -1200,41 +1202,41 @@ Package fancyhdr Warning: \footskip is too small (9.03374pt):
 <figures/LearningCurves.png, id=43, 947.54pt x 467.7475pt>
 File: figures/LearningCurves.png Graphic file (type png)
 <use figures/LearningCurves.png>
-Package pdftex.def Info: figures/LearningCurves.png  used on input line 120.
+Package pdftex.def Info: figures/LearningCurves.png  used on input line 122.
 (pdftex.def)             Requested size: 260.6911pt x 128.68448pt.
 
-Underfull \hbox (badness 4543) in paragraph at lines 142--143
+Underfull \hbox (badness 4543) in paragraph at lines 144--145
 []\T1/pplj/m/n/10 Final per-for-mance be-comes com-pet-i-tive with Q-
  []
+
+
 
 <figures/PolicyComparison.png, id=48, 944.52875pt x 359.3425pt>
 File: figures/PolicyComparison.png Graphic file (type png)
 <use figures/PolicyComparison.png>
-Package pdftex.def Info: figures/PolicyComparison.png  used on input line 151.
+Package pdftex.def Info: figures/PolicyComparison.png  used on input line 153.
 (pdftex.def)             Requested size: 260.6911pt x 99.17863pt.
 
-Underfull \hbox (badness 1496) in paragraph at lines 152--152
+Underfull \hbox (badness 1496) in paragraph at lines 154--154
 []\T1/pplj/m/n/10 Figure 2: |Pol-icy com-par-i-son be-tween Q-learning and
  []
-
-
 
 <figures/HyperparameterSensitivity.png, id=52, 949.5475pt x 672.5125pt>
 File: figures/HyperparameterSensitivity.png Graphic file (type png)
 <use figures/HyperparameterSensitivity.png>
-Package pdftex.def Info: figures/HyperparameterSensitivity.png  used on input line 178.
+Package pdftex.def Info: figures/HyperparameterSensitivity.png  used on input line 180.
 (pdftex.def)             Requested size: 260.6911pt x 184.62852pt.
 
 
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 197.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 199.
 
 Package fancyhdr Warning: \footskip is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
 (fancyhdr)                \setlength{\footskip}{12.0pt}.
 
 [2 <./figures/LearningCurves.png> <./figures/PolicyComparison.png>]
-Underfull \hbox (badness 6944) in paragraph at lines 207--208
+Underfull \hbox (badness 6944) in paragraph at lines 209--210
 []\T1/pplj/m/n/10 The hy-per-pa-ram-e-ter sen-si-tiv-ity ex-per-i-ment fur-ther
  []
 
@@ -1264,9 +1266,9 @@ Here is how much of TeX's memory you used:
  66745 multiletter control sequences out of 15000+600000
  609717 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,11n,131p,838b,1032s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 112i,11n,131p,838b,1038s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report.pdf (3 pages, 850684 bytes).
+Output written on report.pdf (3 pages, 850793 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  103 compressed objects within 2 object streams

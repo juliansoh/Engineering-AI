@@ -71,7 +71,9 @@ Implement Q-learning and State-Action-Reward-State-Action (SARSA) from scratch f
 \section{Introduction} 
 \label{sec:introduction}
 
-This experiment studies \textbf{tabular reinforcement learning} in a small stochastic warehouse navigation problem. The environment is a $4 \times 4$ grid world in which an agent started at the lower-left corner and must learn how to reach a goal state at $(3, 3)$ while avoiding a hazardous state at $(3, 2)$. The task was intentionally simple enough that the full state space can be represented exactly with a tabular value function, yet rich enough to highlight important reinforcement-learning ideas such as stochastic transitions, exploration, bootstrapping, and the difference between \textbf{off-policy} and \textbf{on-policy} learning.
+This experiment was about \textbf{tabular reinforcement learning} in a small stochastic warehouse navigation problem, an environment that consisted of a $4 \times 4$ grid world in which an agent started at the lower-left corner and must learn how to reach a goal state at $(3, 3)$ while avoiding a hazardous state at $(3, 2)$. The agent used two reinforcement learning algorithms: Q-learning and State-Action-Reward-State-Action (SARSA) and the goal was to compare their performance and learned policies.
+
+The task was intentionally simple enough that the full state space can be represented exactly with a tabular value function, yet rich enough to highlight important reinforcement-learning ideas such as stochastic transitions, exploration, bootstrapping, and the difference between \textbf{off-policy} and \textbf{on-policy} learning.
 
 Aside from comparing reward curves, we also compared the learned policies directly against the optimal policy from value iteration. This made it possible to identify which states were learned correctly and where the methods differed, particularly in states in close proximity to the hazard.
 
