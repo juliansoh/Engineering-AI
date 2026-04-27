@@ -17,7 +17,7 @@
 	\vspace{3pt}
 	% Title:
 	{\sffamily\bfseries\Large
-		Report for Assignment 9: Tabular Q-Learning for Warehouse Navigation
+		Report for Assignment 10: Function Approximation Showdown
 	} \\
 	{\color{gray}
 		\vspace{3pt}
@@ -58,7 +58,7 @@
 \begin{adjustwidth}{1.5in}{1.5in}
 {\small
 \noindent\textbf{Abstract.} \hspace{1em}
-Implement Q-learning and State-Action-Reward-State-Action (SARSA) from scratch for the  warehouse MDP, compare their learned policies to the value iteration solution from Chapter 4, and investigate the effect of exploration schedules and learning rates on convergence.
+Implement three approaches to RL in a continuous-state warehouse environment --- discretized Q-learning, tile-coded linear Q-learning, and DQN --- and compare their learning efficiency and final policy quality. Then extend the state space to see where DQN's advantage emerges.
 }
 \end{adjustwidth}
 \vspace{9pt}
@@ -69,146 +69,179 @@ Implement Q-learning and State-Action-Reward-State-Action (SARSA) from scratch f
 %%% Body -------------------------
 
 \section{Introduction} 
-\label{sec:introduction}
 
-This experiment was about \textbf{tabular reinforcement learning} in a small stochastic warehouse navigation problem, an environment that consisted of a $4 \times 4$ grid world in which an agent started at the lower-left corner and must learn how to reach a goal state at $(3, 3)$ while avoiding a hazardous state at $(3, 2)$. The agent used two reinforcement learning algorithms: Q-learning and State-Action-Reward-State-Action (SARSA) and the goal was to compare their performance and learned policies.
+This experiment studies how function-approximation strategies can be used to learn control policies in a continuous-state warehouse environment, where the state variables vary over ranges instead of a small set of discrete grid spaces. 
 
-The task was intentionally simple enough that the full state space can be represented exactly with a tabular value function, yet rich enough to highlight important reinforcement-learning ideas such as stochastic transitions, exploration, bootstrapping, and the difference between \textbf{off-policy} and \textbf{on-policy} learning.
+The core objective is to compare discretized Q-learning, tile-coded linear Q-learning, and deep Q-networks (DQN) in terms of learning behavior and policy quality. 
 
-Aside from comparing reward curves, we also compared the learned policies directly against the optimal policy from value iteration. This made it possible to identify which states were learned correctly and where the methods differed, particularly in states in close proximity to the hazard.
+This setup differs fundamentally from a standard Q-table method: in tabular reinforcement learning, each state-action pair stores exactly one independent value entry, which is practical only when the state space is small and discrete. 
 
-Overall, this experiment was designed to show not only whether the agent learned successfully, but also \textbf{how different reinforcement-learning algorithms behave under uncertainty}. In particular, it illustrated why Q-learning often learns more aggressive goal-directed behavior, while State-Action-Reward-State-Action (SARSA) can learn safer policies in risky regions because it accounts for the consequences of continued exploration.
+With function approximation, value estimates are produced by parameterized models that generalize across nearby states, allowing the agent to scale beyond exact lookup tables and handle continuous domains more effectively.
+Therefore, these are better approaches for environments with continuous state spaces, where the number of possible states is effectively infinite and tabular methods become infeasible.
 
 \section{Methods}
 
-\subsection{Warehouse and Robot Setup}
-The warehouse setup and robot behavior are summarized below:
-\begin{itemize}
-	\item The warehouse environment is \textbf{stochastic}: the intended action is followed with probability $0.8$, and each perpendicular action occurs with probability $0.1$.
-	\item This transition uncertainty requires the robot to plan under risk, rather than follow a deterministic shortest path.
-	\item Reward design: each non-terminal transition gives a living reward of $-0.04$.
-	\item Terminal rewards: reaching the goal gives $+1$, while entering the hazard gives $-1$.
-	\item As a result, the learned policy must balance efficiency (shorter routes) against safety (avoiding hazard-adjacent states).
-\end{itemize}
+We first implemented a continuous warehouse environment with state vector $(x,y,\theta,v) \in [0,4]^2 \times [0,2\pi) \times [0,1]$ and four discrete actions (North, South, East, West). At each step, the selected action produced a directional motion update, then Gaussian noise was added to model transition uncertainty. The heading and speed were updated from the applied motion, and terminal regions were defined geometrically: a goal circle of radius $0.5$ centered at $(3.5,3.5)$ and a hazard circle of radius $0.5$ centered at $(2.0,2.0)$. This setup created a continuous-control benchmark where exploration quality and representation choice strongly influence learning stability.
 
-\subsection{Comparing Q-learning vs SARSA}
-The main goal of the experiment was to compare \textbf{Q-learning} and \textbf{SARSA} on the same control problem (The Warehouse). Both algorithms learn action values from sampled experience, but they differ in a fundamental way. 
+The first learning baseline was discretized Q-learning. Although the underlying environment is continuous, we discretized only the position components $(x,y)$ into a $10 \times 10$ grid and ignored $(\theta,v)$ to obtain a compact tabular approximation. The agent was trained for 2000 episodes with $\varepsilon$-greedy exploration, and performance was tracked using episode return and a smoothed learning curve. This baseline quantifies how much performance can be achieved by coarse state aggregation before using richer function approximators.
 
-Q-learning uses the greedy backup target $\max_a Q(s', a)$ and therefore learns toward the optimal policy regardless of the exploratory action actually taken. 
+The second approach was tile-coded linear Q-learning. We used eight offset tilings over the $(x,y)$ space, each built from a $4 \times 4$ base grid with one extra tile per dimension so boundary tiles preserve natural width. State features were binary and sparse, and action values were represented by a linear function over active tiles. Parameters were updated with the semi-gradient TD control rule, and training again used 2000 episodes. This method provided controlled generalization across neighboring states while remaining interpretable and computationally light.
 
-SARSA instead updates using the action chosen by the current $\varepsilon$-greedy policy, so it learns the value of behaving according to its current exploration strategy. This distinction is especially important near the hazard, where exploratory mistakes can be costly.
+The third approach was DQN, which consumed the full normalized state $(x,y,\theta,v)$ and predicted Q-values for all four actions with a two-hidden-layer ReLU network (64 units per layer). To stabilize bootstrapped updates, we used an experience replay buffer (size 10,000, batch size 64) and a target network synchronized every 100 gradient steps. Input normalization to $[0,1]$ was applied before network inference and updates. The DQN agent was also trained for 2000 episodes and evaluated with the same return-based learning-curve protocol.
 
-We created the accompanying Jupyter notebook to carry out the following sequence of steps:
-\begin{itemize}
-	\item Verify required Python packages and imports (NumPy, Matplotlib, and related dependencies).
-	\item Implement the warehouse environment class, including stochastic transitions, rewards, terminal states, and reset/step interaction.
-	\item Implement $\varepsilon$-greedy action selection and train Q-learning for 1000 episodes.
-	\item Extract the Q-learning policy using $\pi(s)=\arg\max_a Q(s,a)$ and summarize training rewards.
-	\item Implement and train State-Action-Reward-State-Action (SARSA) for 1000 episodes under the same environment and comparable hyperparameters.
-	\item Extract the SARSA policy and compare it to the Q-learning policy qualitatively on the grid.
-	\item Compute a value-iteration benchmark to obtain the optimal expected return from the start state.
-	\item Plot rolling-average learning curves (window size 50) for Q-learning and SARSA on the same axes, together with the optimal-return reference line.
-	\item Compare learned policies against the optimal policy by counting state-wise matches and visualizing all policies with arrow plots.
-\end{itemize}
+To compare the three methods directly, we plotted rolling-average returns (window size 100) on shared axes and reported three summary metrics: (1) episodes required to reach 80\% of the estimated optimal performance level, (2) final average reward over the last 200 episodes, and (3) parameter count for each representation. These metrics jointly capture sample efficiency, asymptotic quality, and model complexity.
 
-\subsection{Hyperparameter Sensitivity}
-The accompanying Jupyter notebook also includes a \textbf{hyperparameter sensitivity study} over learning rate $\alpha$ and exploration decay rate $\rho$ to examine how quickly different configurations converge and which settings are unstable or fail to learn reliably.
+Finally, we ran a DQN ablation study with three variants: full DQN (replay + target network), DQN without replay (updates from only the most recent transition), and DQN without a target network (online network used for targets). We trained all variants under the same budget and compared their learning curves to identify which stabilization component contributed more to robust convergence. The resulting behavior was interpreted in relation to the deadly triad (bootstrapping, off-policy updates, and function approximation).
 
 \section{Results and Discussion}
-\label{sec:results}
+
+\subsection{Discretized Q-Learning}
 
 \begin{figure}[htb]
-	\centering
-	\includegraphics[width=.98\linewidth]{figures/LearningCurves.png}
-	\caption{Rolling-average learning curves for Q-learning and SARSA, with optimal-return reference.}
-	\label{fig:learning_curves}
+\centering
+\includegraphics[width=.98\linewidth]{figures/Discretized_Q-learning.png}
+\caption{Learning curve for discretized Q-learning in the continuous warehouse environment.}
+\label{fig:discretized_q_learning}
 \end{figure}
 
-\subsection{Q-Learning}
-
-For Q-learning, the learning-curve behavior in Figure~\ref{fig:learning_curves} shows effective convergence in the tabular setting.
+Figure~\ref{fig:discretized_q_learning} summarizes the training behavior of the discretized Q-learning agent.
 
 \begin{itemize}
-	\item Early training is noisy due to high exploration ($\varepsilon$ near 1), producing wide reward variance and occasional hazard visits.
-	\item As $\varepsilon$ decays, returns improve and the learned behavior becomes increasingly consistent and goal-directed.
-	\item The reward trend approaches the value-iteration benchmark over training, indicating that the off-policy updates are learning a strong control policy.
+\item The rolling-average reward trend increases over training, indicating that the discretized Q-learning agent is learning a better policy over time.
+\item Early episodes appear noisier (larger return fluctuations), which is consistent with higher exploration at the start of training.
+\item As training progresses, the curve becomes smoother and more stable, suggesting convergence toward a consistent behavior.
+\item The final part of the curve remains in a high-reward region, implying that a coarse $10 \times 10$ discretization is sufficient to learn effective navigation in this environment.
+\item Even with this good final performance, the discretization limits resolution: nearby continuous states share the same bin, which can reduce policy precision near boundaries and hazard-adjacent regions.
 \end{itemize}
 
-\subsection{SARSA}
-
-For State-Action-Reward-State-Action (SARSA), Figure~\ref{fig:learning_curves} indicates a stable on-policy learning process with competitive final performance.
-
-\begin{itemize}
-	\item Early episodes show high reward variance due to large exploration probability and frequent non-greedy actions.
-	\item As $\varepsilon$ decays, returns improve and the learned policy stabilizes, indicating convergence in the tabular setting.
-	\item Final performance becomes competitive with Q-learning, while the learning trend is generally smoother during training.
-\end{itemize}
-
-\subsection{Policy Comparison}
-
-Figure~\ref{fig:policy_comparison} summarizes the learned-policy behavior and trajectory tendencies for Q-learning and State-Action-Reward-State-Action (SARSA) in the stochastic warehouse grid.
+\subsection{Tile-Coded Linear Q-Learning}
 
 \begin{figure}[htb]
-	\centering
-	\includegraphics[width=.98\linewidth]{figures/PolicyComparison.png}
-	\caption{Policy comparison between Q-learning and SARSA in the warehouse navigation task.}
-	\label{fig:policy_comparison}
+\centering
+\includegraphics[width=.98\linewidth]{figures/Tile-Coded_Linear_Q-learning.png}
+\caption{Learning curve for tile-coded linear Q-learning in the continuous warehouse environment.}
+\label{fig:tile_coded_linear_q_learning}
 \end{figure}
 
-\paragraph{Q-learning Policy Behavior}
-Q-learning uses the optimistic target $\max_a Q(s',a)$, which tends to favor aggressive action choices in risky regions. In Figure~\ref{fig:policy_comparison}, this appears as a tendency to route closer to the hazard when that path is shorter.
+Figure~\ref{fig:tile_coded_linear_q_learning} shows the observed training behavior for tile-coded linear Q-learning:
 
 \begin{itemize}
-	\item The learned route can prioritize shorter trajectories even when they pass near hazardous states.
-	\item Near $(3,2)$, Q-learning is more likely to choose high-reward but higher-risk actions than SARSA.
+\item The learning curve rises steadily, showing that the tile-coded agent improves policy quality across episodes.
+\item Variability is highest early in training, which is expected under high initial exploration and stochastic transitions.
+\item The rolling-average trajectory becomes smoother later, indicating more stable value estimates and action selection.
+\item Performance plateaus in a high-reward region, suggesting that 8 offset tilings with a $4 \times 4$ base grid are expressive enough for this task.
+\item Tile coding achieves useful generalization over nearby continuous states, so it learns faster than purely local lookup behavior.
+\item A remaining limitation is feature granularity: states near critical boundaries (especially around the hazard) can still share similar active tiles, which can blur fine control decisions.
 \end{itemize}
 
-\paragraph{SARSA Policy Behavior}
-Because SARSA updates from the action actually taken, it internalizes exploration risk in its value estimates. As shown in Figure~\ref{fig:policy_comparison}, this produces a more conservative policy near the hazard.
-
-\begin{itemize}
-	\item SARSA tends to keep a wider safety margin around $(3,2)$ than Q-learning.
-	\item The resulting policy is less aggressive but more risk-aware in high-penalty regions.
-\end{itemize}
-
-\subsection{Hyperparameter Sensitivity Experiment}
-
-Figure~\ref{fig:hyperparameter_sensitivity} shows the 3\,$\times$\,3 learning-curve grid for Q-learning across learning rates $\alpha \in \{0.01, 0.1, 0.5\}$ and exploration-decay rates $\rho \in \{0.99, 0.995, 0.999\}$.
+\subsection{DQN}
 
 \begin{figure}[htb]
-	\centering
-	\includegraphics[width=.98\linewidth]{figures/HyperparameterSensitivity.png}
-	\caption{Hyperparameter sensitivity for Q-learning across $(\alpha,\rho)$ combinations.}
-	\label{fig:hyperparameter_sensitivity}
+\centering
+\includegraphics[width=.98\linewidth]{figures/DQN.png}
+\caption{Learning curve for DQN in the continuous warehouse environment.}
+\label{fig:dqn_learning_curve}
 \end{figure}
 
-From Figure~\ref{fig:hyperparameter_sensitivity}, several trends are clear:
+Figure~\ref{fig:dqn_learning_curve} summarizes the observed DQN learning behavior:
 
 \begin{itemize}
-	\item Faster exploration decay ($\rho=0.99$) generally produces the quickest reward improvement across tested learning rates.
-	\item Moderate decay ($\rho=0.995$) remains competitive but typically converges slightly later than $\rho=0.99$.
-	\item Slow decay ($\rho=0.999$) tends to underperform within 1000 episodes because prolonged exploration delays policy stabilization.
+\item The DQN rolling-average reward curve trends upward, indicating that the network is learning increasingly effective action values over training.
+\item Early training shows higher variance, which is expected from both stochastic environment transitions and large initial exploration.
+\item As episodes progress, the curve becomes smoother and more stable, suggesting that replay-based updates and target-network synchronization improve learning stability.
+\item The final part of the trajectory remains in a high-reward region, showing that DQN can learn a strong policy from the full continuous state $(x,y,\theta,v)$.
+\item Unlike coarse discretization methods, DQN can represent richer state interactions through learned nonlinear features, which is beneficial in continuous domains.
+\item Even so, DQN convergence is sensitive to hyperparameters (learning rate, exploration decay, replay settings, and target update frequency), so stable performance depends on proper tuning.
 \end{itemize}
 
-The learning-rate effect is also visible in Figure~\ref{fig:hyperparameter_sensitivity}:
+\subsection{Comparisons}
 
-\begin{itemize}
-	\item $\alpha=0.1$ provides the best balance between convergence speed and stability.
-	\item $\alpha=0.5$ can improve quickly for favorable decay settings, but exhibits larger oscillations in some panels.
-	\item $\alpha=0.01$ is stable but learns more slowly, especially when paired with $\rho=0.999$.
-\end{itemize}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.98\linewidth]{figures/Compare.png}
+\caption{Comparison of learning curves and summary performance across discretized Q-learning, tile-coded linear Q-learning, and DQN.}
+\label{fig:comparison_all_methods}
+\end{figure}
 
-Overall, the best-performing region in this experiment is around $\alpha \in [0.1, 0.5]$ with $\rho \in [0.99, 0.995]$, while configurations with very slow decay are less effective within the fixed training budget.
+Figure~\ref{fig:comparison_all_methods} summarizes the cross-method comparison using the same rolling-average protocol and performance threshold. Using the reported 80\% optimal-performance threshold of $0.7103$, tile-coded linear Q-learning reached the threshold fastest at 231 episodes, followed by discretized Q-learning at 328 episodes, while DQN required 643 episodes. This indicates that, in this problem setup, the lighter-weight value-function approximators were more sample-efficient early in training than the deeper neural approach.
+
+In terms of asymptotic quality, both tabular-style approximations achieved slightly higher final average reward over the last 200 episodes than DQN: $0.8879$ for tile-coded linear Q-learning and $0.8839$ for discretized Q-learning versus $0.8554$ for DQN. The gap is modest, but it suggests that under the current hyperparameter choices and training budget, DQN did not fully convert its extra representational flexibility into better final return.
+
+Model complexity differed substantially across methods. Discretized Q-learning used 400 parameters, tile-coded linear Q-learning used 800 parameters, and DQN used 4740 parameters. Taken together with the threshold and final-reward metrics, these results show a clear efficiency tradeoff in this experiment: tile-coded linear Q-learning delivered the strongest overall balance of learning speed and final reward with far fewer parameters than DQN, while DQN remained the most expressive option for scaling to richer continuous-state structure beyond this specific task configuration.
+
+\subsection{Ablation study for DQN}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.98\linewidth]{figures/Ablation.png}
+\caption{Ablation comparison of full DQN, DQN without replay, and DQN without target network.}
+\label{fig:dqn_ablation}
+\end{figure}
+
+Figure~\ref{fig:dqn_ablation} evaluates which stabilization components are most important for DQN in this task. The implementation environment was verified before training (Python 3.12.13 with NumPy 2.4.1, Pandas 3.0.1, Matplotlib, scikit-learn 1.8.0, and PyTorch 2.11.0 on CPU), and all runs used the same continuous-warehouse setup to isolate algorithmic differences.
+
+The full DQN variant (experience replay + target network) achieved a final average reward of $0.8862$ over the last 200 episodes, which is consistent with strong and stable convergence. In contrast, removing replay caused a large performance drop to $0.3605$, and removing the target network degraded further to $-0.0594$. These gaps show that both components matter, but the replay buffer has the largest impact on final policy quality under the current training budget.
+
+The stability metric in Figure~\ref{fig:dqn_ablation} supports the same conclusion. Using the standard deviation of tail rolling rewards (lower is better), full DQN achieved $0.0117$, while no-replay and no-target variants rose to $0.1738$ and $0.1028$, respectively. This reproduces the ablation verdict that experience replay contributes more to stability than target-network updates in this experiment, while also confirming that the strongest overall behavior requires both mechanisms together.
+
+These ablation findings align with the broader comparison results: although DQN has higher representational capacity (4740 parameters) than discretized (400) and tile-coded (800) methods, that capacity is only useful when optimization is stabilized. In short, DQN performance here is governed not only by model size but by the effectiveness of replay and target-network design choices.
 
 \section{Conclusion}
 
-This experiment demonstrated that tabular reinforcement learning can learn effective navigation behavior in a stochastic warehouse environment with sparse terminal rewards and a hazard penalty. Both Q-learning and State-Action-Reward-State-Action (SARSA) improved substantially over training and produced policies that were broadly aligned with the value-iteration benchmark. The learning-curve results confirmed that both methods are viable in this domain, with Q-learning often showing faster reward gains, while SARSA displayed smoother adaptation under ongoing exploration.
+Referring to the accompanying Jupyter notebook, we investigated three reinforcement-learning strategies for a \textbf{continuous-state warehouse} task: Discretized Q-learning, Tile-Coded Linear Q-learning, and Deep Q-Networks (DQN).
 
-The policy-level comparison highlighted the key behavioral difference between off-policy and on-policy learning. Q-learning, driven by the $\max_a Q(s',a)$ target, tended to prefer shorter and more aggressive routes, including routes that pass closer to the hazard when they provide higher expected return. In contrast, SARSA internalized exploration risk through its on-policy update and therefore learned more conservative trajectories that maintain a wider safety margin near hazardous states. This distinction is important in practical robotics settings where risk tolerance and safety constraints matter as much as path efficiency.
+\subsection*{Key Findings Across Methods}
+\begin{itemize}
+\item \textbf{All three approaches learned effective policies} and produced upward-trending learning curves, showing that each method can solve the task under a 2000-episode budget.
+\item \textbf{Tile-coded linear Q-learning showed the strongest overall balance} of sample efficiency and final return in this experiment.
+\item \textbf{DQN did not win by default} despite higher representational power, highlighting that deep methods require careful stabilization and tuning.
+\end{itemize}
 
-The hyperparameter sensitivity experiment further showed that convergence quality is strongly dependent on both learning rate and exploration schedule. Faster or moderate exploration decay ($\rho \in [0.99, 0.995]$) produced better performance within the fixed 1000-episode budget than very slow decay ($\rho=0.999$), which kept exploration high for too long. A moderate learning rate ($\alpha=0.1$) provided the most reliable balance between speed and stability, while higher learning rate ($\alpha=0.5$) could converge quickly but with more oscillatory behavior, and lower learning rate ($\alpha=0.01$) converged more slowly.
+\subsection*{Quantitative Comparison Summary}
+Using the notebook comparison report (80\% threshold = \textbf{0.7103}):
 
-Overall, the results support three conclusions: (1) both algorithms can learn strong policies in this warehouse MDP, (2) Q-learning is typically more reward-aggressive whereas SARSA is more risk-aware near hazards, and (3) careful hyperparameter selection is essential for stable and efficient convergence.
+\textbf{Discretized Q-learning}
+\begin{itemize}
+\item Episodes to 80\%: \textbf{328}
+\item Final average reward (last 200): \textbf{0.8839}
+\item Parameters: \textbf{400}
+\end{itemize}
+
+\textbf{Tile-coded linear Q-learning}
+\begin{itemize}
+\item Episodes to 80\%: \textbf{231} (fastest)
+\item Final average reward (last 200): \textbf{0.8879} (best)
+\item Parameters: \textbf{800}
+\end{itemize}
+
+\textbf{DQN}
+\begin{itemize}
+\item Episodes to 80\%: \textbf{643} (slowest)
+\item Final average reward (last 200): \textbf{0.8554}
+\item Parameters: \textbf{4740}
+\end{itemize}
+
+These numbers show a clear tradeoff: for this specific environment and training horizon, the simpler structured approximators (especially tile coding) were more data-efficient and slightly stronger in final return than the deeper model.
+
+\subsection*{Interpretation of Representation Choices}
+\begin{itemize}
+\item \textbf{Discretized Q-learning} works well as a strong baseline, but coarse binning can merge distinct nearby states and reduce control precision near critical regions (for example, around hazards and boundaries).
+\item \textbf{Tile coding} improves on this by introducing overlapping local generalization while keeping updates linear and stable; this likely explains its faster convergence and top final performance here.
+\item \textbf{DQN} can represent richer nonlinear interactions over the full state, which is a major long-term advantage for higher-dimensional or more complex continuous tasks, but the current results show that this flexibility only helps when optimization is well stabilized.
+\end{itemize}
+
+\subsection*{DQN Ablation Conclusions}
+The ablation study directly tested DQN stability components:
+\begin{itemize}
+\item Full DQN (replay + target): final-200 reward \textbf{0.8862}, tail-std \textbf{0.0117}
+\item No replay: final-200 reward \textbf{0.3605}, tail-std \textbf{0.1738}
+\item No target network: final-200 reward \textbf{-0.0594}, tail-std \textbf{0.1028}
+\end{itemize}
+
+The verdict from both performance and stability metrics is that \textbf{experience replay contributed more to stability} than the target network in this setup, though both were important for reliable learning.
+
+\subsection*{Overall Takeaway}
+For this continuous warehouse task, \textbf{tile-coded linear Q-learning provided the best practical balance} of speed, stability, and return with modest parameter count. \textbf{DQN remained the most expressive method}, but its advantage did not fully materialize under the current hyperparameters and budget without strong stabilization. The broader lesson is that in continuous RL, model capacity alone is not enough: \textbf{representation, optimization stability, and hyperparameter design jointly determine performance}.
 
 %%% References -------------------------
 

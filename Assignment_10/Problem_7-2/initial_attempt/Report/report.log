@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 APR 2026 13:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 APR 2026 21:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/juliansoh/Documents/dev/Engineering-AI/Assignment_9/Problem_7-1/initial_attempt/Report/report.tex
-(/Users/juliansoh/Documents/dev/Engineering-AI/Assignment_9/Problem_7-1/initial_attempt/Report/report.tex
+**/Users/juliansoh/Documents/dev/Engineering-AI/Assignment_10/Problem_7-2/initial_attempt/Report/report.tex
+(/Users/juliansoh/Documents/dev/Engineering-AI/Assignment_10/Problem_7-2/initial_attempt/Report/report.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -1108,85 +1108,80 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.19998pt on input line 67.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 13.24796pt on input line 67.
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 74.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
+
+Underfull \hbox (badness 1112) in paragraph at lines 79--81
+\T1/pplj/m/n/10 duced by pa-ram-e-ter-ized mod-els that gen-er-al-ize across
+ []
+
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 84.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
-LaTeX Font Info:    Trying to load font information for U+zeus on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 84.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
-LaTeX Font Info:    Trying to load font information for U+zeuex on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
+LaTeX Font Info:    Trying to load font information for U+zeuex on input line 84.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/eulervm/uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 84.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeur/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeur/b/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeur/b/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 74.
+(Font)              scaled to size 9.49997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
-(Font)              scaled to size 7.21997pt on input line 74.
+(Font)              scaled to size 7.21997pt on input line 84.
 LaTeX Font Info:    Font shape `U/zeus/b/n' will be
-(Font)              scaled to size 5.69998pt on input line 74.
+(Font)              scaled to size 5.69998pt on input line 84.
 
-Underfull \hbox (badness 1147) in paragraph at lines 76--77
-\T1/pplj/m/n/10 state space can be rep-re-sented ex-actly with a tab-u-lar
- []
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.03998pt on input line 84.
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 87.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pplj.fd
-File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-)
+(Font)              scaled to size 11.03998pt on input line 98.
+<figures/Discretized_Q-learning.png, id=23, 786.94pt x 386.44376pt>
+File: figures/Discretized_Q-learning.png Graphic file (type png)
+<use figures/Discretized_Q-learning.png>
+Package pdftex.def Info: figures/Discretized_Q-learning.png  used on input line 102.
+(pdftex.def)             Requested size: 260.6911pt x 128.01625pt.
 
-
-Underfull \hbox (badness 1642) in paragraph at lines 105--106
-[]\T1/pplj/m/n/10 Implement $\U/zeur/m/n/10 "$\T1/pplj/m/n/10 -greedy ac-tion se-lec-tion and train Q-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-[]\T1/pplj/m/n/10 Extract the Q-learning pol-icy us-ing $\U/zeur/m/n/10 ^^Y\U/zeus/m/n/10 ¨\U/zeur/m/n/10 s\U/zeus/m/n/10 © ½
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1199,48 +1194,62 @@ Package fancyhdr Warning: \footskip is too small (9.03374pt):
 
 
 ]
-<figures/LearningCurves.png, id=43, 947.54pt x 467.7475pt>
-File: figures/LearningCurves.png Graphic file (type png)
-<use figures/LearningCurves.png>
-Package pdftex.def Info: figures/LearningCurves.png  used on input line 122.
-(pdftex.def)             Requested size: 260.6911pt x 128.68448pt.
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 110.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
+)
+<figures/Tile-Coded_Linear_Q-learning.png, id=43, 786.94pt x 385.44pt>
+File: figures/Tile-Coded_Linear_Q-learning.png Graphic file (type png)
+<use figures/Tile-Coded_Linear_Q-learning.png>
+Package pdftex.def Info: figures/Tile-Coded_Linear_Q-learning.png  used on input line 121.
+(pdftex.def)             Requested size: 260.6911pt x 127.68373pt.
 
-Underfull \hbox (badness 4543) in paragraph at lines 144--145
-[]\T1/pplj/m/n/10 Final per-for-mance be-comes com-pet-i-tive with Q-
- []
 
-
-
-<figures/PolicyComparison.png, id=48, 944.52875pt x 359.3425pt>
-File: figures/PolicyComparison.png Graphic file (type png)
-<use figures/PolicyComparison.png>
-Package pdftex.def Info: figures/PolicyComparison.png  used on input line 153.
-(pdftex.def)             Requested size: 260.6911pt x 99.17863pt.
-
-Underfull \hbox (badness 1496) in paragraph at lines 154--154
-[]\T1/pplj/m/n/10 Figure 2: |Pol-icy com-par-i-son be-tween Q-learning and
- []
-
-<figures/HyperparameterSensitivity.png, id=52, 949.5475pt x 672.5125pt>
-File: figures/HyperparameterSensitivity.png Graphic file (type png)
-<use figures/HyperparameterSensitivity.png>
-Package pdftex.def Info: figures/HyperparameterSensitivity.png  used on input line 180.
-(pdftex.def)             Requested size: 260.6911pt x 184.62852pt.
+<figures/DQN.png, id=45, 951.555pt x 470.75874pt>
+File: figures/DQN.png Graphic file (type png)
+<use figures/DQN.png>
+Package pdftex.def Info: figures/DQN.png  used on input line 141.
+(pdftex.def)             Requested size: 260.6911pt x 128.967pt.
+<figures/Compare.png, id=47, 954.56625pt x 514.92375pt>
+File: figures/Compare.png Graphic file (type png)
+<use figures/Compare.png>
+Package pdftex.def Info: figures/Compare.png  used on input line 161.
+(pdftex.def)             Requested size: 260.6911pt x 140.6184pt.
 
 
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 199.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 164.
 
 Package fancyhdr Warning: \footskip is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
 (fancyhdr)                \setlength{\footskip}{12.0pt}.
 
-[2 <./figures/LearningCurves.png> <./figures/PolicyComparison.png>]
-Underfull \hbox (badness 6944) in paragraph at lines 209--210
-[]\T1/pplj/m/n/10 The hy-per-pa-ram-e-ter sen-si-tiv-ity ex-per-i-ment fur-ther
+[2 <./figures/Discretized_Q-learning.png> <./figures/Tile-Coded_Linear_Q-learning.png> <./figures/DQN.png>]
+<figures/Ablation.png, id=63, 954.56625pt x 513.92pt>
+File: figures/Ablation.png Graphic file (type png)
+<use figures/Ablation.png>
+Package pdftex.def Info: figures/Ablation.png  used on input line 176.
+(pdftex.def)             Requested size: 260.6911pt x 140.34428pt.
+
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 191--192
+\T1/pplj/m/n/10 ves-ti-gated three reinforcement-learning strate-gies for a
  []
 
 
+Underfull \hbox (badness 2894) in paragraph at lines 191--192
+\T1/pplj/m/n/10 Tile-Coded Lin-ear Q-learning, and Deep Q-Networks
+ []
+
+
+
+
+Package fancyhdr Warning: \footskip is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.0pt, for example:
+(fancyhdr)                \setlength{\footskip}{12.0pt}.
+
+[3 <./figures/Compare.png> <./figures/Ablation.png>]
 
 (./report.bbl)
 
@@ -1249,7 +1258,7 @@ Package fancyhdr Warning: \footskip is too small (9.03374pt):
 (fancyhdr)                Make it at least 12.0pt, for example:
 (fancyhdr)                \setlength{\footskip}{12.0pt}.
 
-[3 <./figures/HyperparameterSensitivity.png>] 
+[4] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./report.aux)
  ***********
@@ -1260,18 +1269,18 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 7808F8DE2570E0B490298289A7464E27;191.
  ) 
 Here is how much of TeX's memory you used:
- 44333 strings out of 473190
- 1028376 string characters out of 5715801
- 1559887 words of memory out of 5000000
- 66745 multiletter control sequences out of 15000+600000
- 609717 words of font info for 113 fonts, out of 8000000 for 9000
+ 44348 strings out of 473190
+ 1028785 string characters out of 5715801
+ 1559073 words of memory out of 5000000
+ 66759 multiletter control sequences out of 15000+600000
+ 608184 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,11n,131p,838b,1038s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report.pdf (3 pages, 850793 bytes).
+ 112i,12n,131p,871b,951s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on report.pdf (4 pages, 1120407 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 60 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 146 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

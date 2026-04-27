@@ -4,33 +4,31 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \providecommand \oddpage@label [2]{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\newlabel{sec:introduction}{{1}{1}{Introduction}{section.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Warehouse and Robot Setup}{1}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Comparing Q-learning vs SARSA}{1}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Hyperparameter Sensitivity}{2}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results and Discussion}{2}{section.3}\protected@file@percent }
-\newlabel{sec:results}{{3}{2}{Results and Discussion}{section.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Rolling-average learning curves for Q-learning and SARSA, with optimal-return reference.}}{2}{figure.caption.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Discretized Q-Learning}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Learning curve for discretized Q-learning in the continuous warehouse environment.}}{2}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:learning_curves}{{1}{2}{Rolling-average learning curves for Q-learning and SARSA, with optimal-return reference}{figure.caption.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Q-Learning}{2}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}SARSA}{2}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Policy Comparison}{2}{subsection.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Policy comparison between Q-learning and SARSA in the warehouse navigation task.}}{2}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:policy_comparison}{{2}{2}{Policy comparison between Q-learning and SARSA in the warehouse navigation task}{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Q-learning Policy Behavior}{2}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{SARSA Policy Behavior}{2}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Hyperparameter Sensitivity Experiment}{2}{subsection.3.4}\protected@file@percent }
+\newlabel{fig:discretized_q_learning}{{1}{2}{Learning curve for discretized Q-learning in the continuous warehouse environment}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Tile-Coded Linear Q-Learning}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Learning curve for tile-coded linear Q-learning in the continuous warehouse environment.}}{2}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:tile_coded_linear_q_learning}{{2}{2}{Learning curve for tile-coded linear Q-learning in the continuous warehouse environment}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}DQN}{2}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Learning curve for DQN in the continuous warehouse environment.}}{2}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:dqn_learning_curve}{{3}{2}{Learning curve for DQN in the continuous warehouse environment}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Comparisons}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison of learning curves and summary performance across discretized Q-learning, tile-coded linear Q-learning, and DQN.}}{3}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:comparison_all_methods}{{4}{3}{Comparison of learning curves and summary performance across discretized Q-learning, tile-coded linear Q-learning, and DQN}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Ablation study for DQN}{3}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Ablation comparison of full DQN, DQN without replay, and DQN without target network.}}{3}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:dqn_ablation}{{5}{3}{Ablation comparison of full DQN, DQN without replay, and DQN without target network}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{3}{section.4}\protected@file@percent }
 \citation{*}
 \bibstyle{plainnat}
 \bibdata{report}
 \bibcite{Picone2026}{{1}{2026}{{Picone}}{{}}}
 \bibcite{RussellNorvig2021}{{2}{2021}{{Russell and Norvig}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Hyperparameter sensitivity for Q-learning across $(\alpha ,\rho )$ combinations.}}{3}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:hyperparameter_sensitivity}{{3}{3}{Hyperparameter sensitivity for Q-learning across $(\alpha ,\rho )$ combinations}{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{3}{section.4}\protected@file@percent }
-\newlabel{LastPage}{{4}{3}{Conclusion}{page.3}{}}
-\gdef\lastpage@lastpage{3}
-\gdef\lastpage@lastpageHy{3}
-\gdef \@abspage@last{3}
+\newlabel{LastPage}{{4}{4}{Overall Takeaway}{page.4}{}}
+\gdef\lastpage@lastpage{4}
+\gdef\lastpage@lastpageHy{4}
+\gdef \@abspage@last{4}
