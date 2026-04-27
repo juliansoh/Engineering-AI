@@ -1,0 +1,22 @@
+%%%%%%%% my macros
+
+%%% Footnotes (allows for multiple footnotes with hyperref)
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi}
+
+%%% Description environment appearance
+\newcommand\mydescriptionlabel[1]{\hspace{\labelsep}\sffamily\fontseries{sbc}\selectfont\upshape #1}
+\newenvironment{mydescription}{%
+   \let\descriptionlabel\mydescriptionlabel
+   \description
+}{%
+   \enddescription
+}
+
+%%% Miscellaneous
+\newcommand{\defref}[1]{\hyperref[#1]{Definition~\ref*{#1}}}
+\newcommand\nobreakhyph{\mbox{-}}
